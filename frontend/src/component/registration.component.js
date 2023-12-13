@@ -3,23 +3,24 @@ import { Form, Input, FormGroup, FormFeedback } from 'reactstrap';
 import { isEmail } from 'validator';
 import styled from 'styled-components';
 import Image from '../assets/images/img5.png'
+import { serverUrl } from '../config';
 
 export default class RegisterComponent extends Component {
 
     state = {
         isChecked: false,
       }
-    
-      toggleCheckboxChange = () => {
-        const { handleCheckboxChange, label } = this.props;
-    
-        handleCheckboxChange(label);
-      }
-    
+
     constructor(props) {
         super(props);
 
         this.state = this.getInitialState();
+    }
+
+    toggleCheckboxChange = () => {
+    const { handleCheckboxChange, label } = this.props;
+
+    handleCheckboxChange(label);
     }
 
     getInitialState = () => ({
@@ -41,11 +42,19 @@ export default class RegisterComponent extends Component {
 
 
     handleSubmit = (e) => {
+        console.log("submitting")
+
         const { data } = this.state;
 
+        const body = {
+            login: data.login,
+            password: data.password,
+            address: data.address,
+        }
+
         e.preventDefault();
-        fetch('http://192.168.191.43:18080/register', {
-            body: "{" + '"login"' + ":" + '"' + data.login + '"' + ", " + '"password"' + ":" + '"' + data.password  + '"' + '"address"' + ":" + '"' + data.address  +  "}",
+        fetch(`${serverUrl}/register`, {
+            body: JSON.stringify(body),
             cache: 'no-cache',
             credentials: 'same-origin',
             headers: {
@@ -55,7 +64,7 @@ export default class RegisterComponent extends Component {
             mode: 'cors',
             redirect: 'follow',
             referrer: 'no-referrer',
-          })
+          });
     }
 
     render() {
@@ -84,7 +93,7 @@ export default class RegisterComponent extends Component {
                         checked={isChecked}
                         onChange={this.toggleCheckboxChange}/>
                         <CheckboxText>
-                        I config that I am in legal age, I have read and agree the Service Agreemant.
+                        I config that I am in legal age, I have read and agree the Service Agreement.
                         </CheckboxText>
                     </label>
                 </Checkbox>
@@ -113,7 +122,7 @@ Form {
 Input {
     border: 2px solid #A3C7D6;
     border-radius: 50px;
-    background: rgba(0,0,0,0); 
+    background: rgba(0,0,0,0);
     width: 440px;
     height: 48px;
     margin-bottom: 10px;
@@ -133,8 +142,8 @@ Input:valid{
     font-size: 24px;
     line-height: 31px;
     color: #FFFFFF;
-    background: rgba(0,0,0,0); 
-    padding: 0 0 0 25px; 
+    background: rgba(0,0,0,0);
+    padding: 0 0 0 25px;
 }
 FormFeedback {
     font-family: 'Rajdhani';
