@@ -1,0 +1,60 @@
+[
+    {
+        "owner" : "All",
+        "email" : "All",
+        "status" : "All",
+        "profile_picture": "All",
+        "token" : [
+            {
+              "name": "The Fool",
+              "picture": "https://pbs.twimg.com/media/EyKGw3hU8AAPjny?format=jpg&name=medium"
+            },
+            {
+                "name": "Neon Genesis",
+                "picture": "https://i.pinimg.com/originals/10/ba/57/10ba577383f8c43c8e056adc27b5b6d4.jpg"
+            },
+            {
+                "name": "Demon Slayer",
+                "picture": "https://i.pinimg.com/originals/b0/56/26/b0562656397e9581eb4b6e90f485a9d8.jpg"
+            },
+            {
+                "name": "Dio",
+                "picture": "https://i.pinimg.com/originals/13/40/b8/1340b8cde4c4e984d3f5e97c9ff5bb6e.jpg"
+              },
+              {
+                  "name": "Demon Slayer",
+                  "picture": "https://pbs.twimg.com/media/EiCkNqwXkAAEIc4?format=jpg&name=large"
+              },
+              {
+                  "name": "Demon Slayer",
+                  "picture": "https://i.pinimg.com/originals/ba/03/fd/ba03fd1d547895fa2a7a11318c185102.jpg"
+              },
+              {
+                "name": "Demon Slayer",
+                "picture": "https://pbs.twimg.com/media/EiCkNqwXkAAEIc4?format=jpg&name=large"
+            },
+            {
+                "name": "Demon Slayer",
+                "picture": "https://i.pinimg.com/originals/ba/03/fd/ba03fd1d547895fa2a7a11318c185102.jpg"
+            }
+        ]
+    },
+    {
+        "owner" : "UserName",
+        "email" : "UserEmail",
+        "status" : "General Admin",
+        "profile_picture": "https://cdn.dribbble.com/users/39185/screenshots/3161658/media/0e64939e1211c713573a709f61bb8522.jpg?compress=1&resize=800x600&vertical=top",
+        "token" : [
+            {
+                "name": "Neon Genesis",
+                "picture": "https://pbs.twimg.com/media/ErgoI2GVEAQa3AT?format=jpg&name=large"
+            },
+            {
+                "name": "JoJo",
+                "picture": "https://i.pinimg.com/originals/fd/c8/48/fdc848a692906e62bdfd4f11cbe381b1.jpg"
+            }
+            
+        ]
+    }
+]
+   
