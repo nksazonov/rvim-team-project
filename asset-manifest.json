@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/rvim-team-project/static/css/main.db4a140c.css",
-    "main.js": "/rvim-team-project/static/js/main.1e688fbb.js",
+    "main.js": "/rvim-team-project/static/js/main.2c670577.js",
     "static/media/img4.png": "/rvim-team-project/static/media/img4.65bbd5f65de71fa35e31.png",
     "static/media/img1.png": "/rvim-team-project/static/media/img1.5e843bb62f26c4fbe5dc.png",
     "index.html": "/rvim-team-project/index.html",
     "main.db4a140c.css.map": "/rvim-team-project/static/css/main.db4a140c.css.map",
-    "main.1e688fbb.js.map": "/rvim-team-project/static/js/main.1e688fbb.js.map"
+    "main.2c670577.js.map": "/rvim-team-project/static/js/main.2c670577.js.map"
   },
   "entrypoints": [
     "static/css/main.db4a140c.css",
-    "static/js/main.1e688fbb.js"
+    "static/js/main.2c670577.js"
   ]
 }
