@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
-import { Form, Input, FormGroup, FormFeedback } from 'reactstrap';
-import { isEmail } from 'validator';
+import { Form, Input, FormGroup } from 'reactstrap';
 import styled from 'styled-components';
-import Image from '../assets/images/img5.png'
 import { serverUrl } from '../config';
 
 export default class RegisterComponent extends Component {
-
-    state = {
-        isChecked: false,
-      }
 
     constructor(props) {
         super(props);
 
         this.state = this.getInitialState();
-    }
-
-    toggleCheckboxChange = () => {
-    const { handleCheckboxChange, label } = this.props;
-
-    handleCheckboxChange(label);
     }
 
     getInitialState = () => ({
@@ -29,6 +17,8 @@ export default class RegisterComponent extends Component {
             password: '',
             address: '',
         },
+        signUpButtonText: 'Create a free account',
+        isChecked: false,
     });
 
     handleChange = (e) => {
@@ -40,9 +30,8 @@ export default class RegisterComponent extends Component {
         });
     }
 
-
     handleSubmit = (e) => {
-        console.log("submitting")
+        console.log("request sent")
 
         const { data } = this.state;
 
@@ -65,6 +54,8 @@ export default class RegisterComponent extends Component {
             redirect: 'follow',
             referrer: 'no-referrer',
           });
+
+        this.setState({...this.getInitialState(), signUpButtonText: 'Account created!'});
     }
 
     render() {
@@ -88,18 +79,26 @@ export default class RegisterComponent extends Component {
                 <Checkbox>
                     <label>
                         <input
-                        type="checkbox"
-                        value={label}
-                        checked={isChecked}
-                        onChange={this.toggleCheckboxChange}/>
+                            type="checkbox"
+                            value={label}
+                            checked={isChecked}
+                            onChange={() => this.setState({ isChecked: !isChecked })}
+                        />
                         <CheckboxText>
-                        I config that I am in legal age, I have read and agree the Service Agreement.
+                            I config that I am in legal age, I have read and agree the Service Agreement.
                         </CheckboxText>
                     </label>
                 </Checkbox>
                 <ButtonContainer>
                     <ButtonMetaMask></ButtonMetaMask>
-                    <ButtonCreate type="submit" >CREATE A FREE ACCOUNT</ButtonCreate>
+                    <ButtonCreate
+                        type="submit"
+                        disabled={!isChecked}
+                    >
+                        {
+                            this.state.signUpButtonText
+                        }
+                    </ButtonCreate>
                 </ButtonContainer>
             </Form>
         </Container>
@@ -166,6 +165,13 @@ const ButtonCreate = styled.button`
     line-height: 20px;
     text-align: center;
     color: #FFFFFF;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
     `
 const Checkbox = styled.div`
 input{
