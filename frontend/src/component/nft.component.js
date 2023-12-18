@@ -36,14 +36,21 @@ function NFTComponent() {
         } else if (ethers.utils.isAddress(searchStr)) {
             const tokenIds = (await SmartContract.tokensOf(searchStr)).map(bnTokenId => bnTokenId.toNumber());
             const nfts = [];
+
+            if (tokenIds.length === 0) {
+                setNFTs(nfts);
+                return;
+            }
+
             const tokensData = await SmartContract.tokensData(tokenIds);
 
-            for (let tokenId of tokenIds) {
+            tokenIds.map((tokenId, i) => {
                 nfts.push({
                     tokenId,
-                    pixels: tokensData[tokenId],
+                    pixels: tokensData[i],
                 });
-            }
+                return null;
+            })
 
             setNFTs(nfts);
         }
@@ -140,6 +147,7 @@ color: #A3C7D6;
 display: block;
 `
 const Container = styled.div`
+padding-bottom: 4vh;
 Form {
     padding: 10px 0;
     text-align: center;
@@ -151,7 +159,7 @@ Input {
     background: rgba(0,0,0,0);
     width: 85%;
     height: 46px;
-    margin-bottom: 10px;
+    margin-bottom: 4vh;
 }
 Input::placeholder {
     font-family: 'Rajdhani';
